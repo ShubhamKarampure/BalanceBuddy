@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
+import chatRoutes from './routes/messageRoutes.js'
 
 // Initialize dotenv
 dotenv.config();
@@ -25,7 +26,8 @@ try {
 }
 
 // Routes
-app.use('/api', authRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/chat', chatRoutes);
 
 // Start Server
 app.listen(PORT, () => {
